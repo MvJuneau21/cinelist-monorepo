@@ -1,8 +1,8 @@
+import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import type { HeadersInit, PathParamStyle, PathSerializer, Serializers, Styles } from './serializers'
-import type { StandardSchemaValidator } from './standardSchema'
-import type { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { applyHeaderStyles, defaultBodySerializer, defaultPathSerializer, defaultQuerySerializer, isDefaultJsonBody, serializeCookies } from './serializers'
+import type { StandardSchemaValidator } from './standardSchema'
 import { ParseError, validateStandardSchema } from './standardSchema'
 
 /**
@@ -968,4 +968,4 @@ export const client = createClientCore()
 
 export const createClient = (config?: Parameters<typeof client.createClient>[0]) => client.createClient(config)
 
-client.setConfig({ baseURL: "http://localhost:8000" })
+client.setConfig({ baseURL: 'http://localhost:8000' })

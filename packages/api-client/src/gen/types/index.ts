@@ -2,33 +2,82 @@ export type { AddItemBody, AddItemOptions, AddItemResponse, AddItemResponses, Ad
 export type { CreateListaBody, CreateListaOptions, CreateListaResponse, CreateListaResponses, CreateListaStatus200, CreateListaStatus422 } from './CreateLista'
 export type { DeleteItemBody, DeleteItemOptions, DeleteItemResponse, DeleteItemResponses, DeleteItemStatus200, DeleteItemStatus422 } from './DeleteItem'
 export type { DeleteItemRequest } from './DeleteItemRequest'
-export type { DeleteListRequest } from './DeleteListRequest'
 export type { DeleteListaBody, DeleteListaOptions, DeleteListaResponse, DeleteListaResponses, DeleteListaStatus200, DeleteListaStatus422 } from './DeleteLista'
-export type { DeleteRatingBody, DeleteRatingOptions, DeleteRatingResponse, DeleteRatingResponses, DeleteRatingStatus200, DeleteRatingStatus422 } from './DeleteRating'
+export type { DeleteListRequest } from './DeleteListRequest'
+export type {
+  DeleteRatingBody,
+  DeleteRatingOptions,
+  DeleteRatingResponse,
+  DeleteRatingResponses,
+  DeleteRatingStatus200,
+  DeleteRatingStatus422,
+} from './DeleteRating'
 export type { DeleteRequest } from './DeleteRequest'
 export type { GetListaBody, GetListaOptions, GetListaResponse, GetListaResponses, GetListaStatus200, GetListaStatus422 } from './GetLista'
-export type { GetListasByUserBody, GetListasByUserOptions, GetListasByUserResponse, GetListasByUserResponses, GetListasByUserStatus200, GetListasByUserStatus422 } from './GetListasByUser'
-export type { GetUserRatingsBody, GetUserRatingsOptions, GetUserRatingsResponse, GetUserRatingsResponses, GetUserRatingsStatus200, GetUserRatingsStatus422 } from './GetUserRatings'
+export type {
+  GetListasByUserBody,
+  GetListasByUserOptions,
+  GetListasByUserResponse,
+  GetListasByUserResponses,
+  GetListasByUserStatus200,
+  GetListasByUserStatus422,
+} from './GetListasByUser'
+export type {
+  GetUserRatingsBody,
+  GetUserRatingsOptions,
+  GetUserRatingsResponse,
+  GetUserRatingsResponses,
+  GetUserRatingsStatus200,
+  GetUserRatingsStatus422,
+} from './GetUserRatings'
 export type { HTTPValidationError } from './HTTPValidationError'
-export type { ListTopAnimesOptions, ListTopAnimesResponse, ListTopAnimesResponses, ListTopAnimesStatus200 } from './ListTopAnimes'
-export type { ListTopMoviesOptions, ListTopMoviesResponse, ListTopMoviesResponses, ListTopMoviesStatus200 } from './ListTopMovies'
-export type { ListTopSeriesOptions, ListTopSeriesResponse, ListTopSeriesResponses, ListTopSeriesStatus200 } from './ListTopSeries'
 export type { ListaCreate } from './ListaCreate'
 export type { ListaIdRequest } from './ListaIdRequest'
 export type { ListaItemCreate } from './ListaItemCreate'
 export type { ListaItemOut } from './ListaItemOut'
 export type { ListaOut } from './ListaOut'
 export type { ListaWithItens } from './ListaWithItens'
+export type { ListTopAnimesOptions, ListTopAnimesResponse, ListTopAnimesResponses, ListTopAnimesStatus200 } from './ListTopAnimes'
+export type { ListTopMoviesOptions, ListTopMoviesResponse, ListTopMoviesResponses, ListTopMoviesStatus200 } from './ListTopMovies'
+export type { ListTopSeriesOptions, ListTopSeriesResponse, ListTopSeriesResponses, ListTopSeriesStatus200 } from './ListTopSeries'
 export type { PopularOptions, PopularResponse, PopularResponses, PopularStatus200 } from './Popular'
 export type { RateBody, RateOptions, RateResponse, RateResponses, RateStatus200, RateStatus422 } from './Rate'
 export type { RateRequest } from './RateRequest'
 export type { RootOptions, RootResponse, RootResponses, RootStatus200 } from './Root'
 export type { SearchBody, SearchOptions, SearchResponse, SearchResponses, SearchStatus200, SearchStatus422 } from './Search'
-export type { SearchAnimesBody, SearchAnimesOptions, SearchAnimesResponse, SearchAnimesResponses, SearchAnimesStatus200, SearchAnimesStatus422 } from './SearchAnimes'
-export type { SearchMoviesBody, SearchMoviesOptions, SearchMoviesResponse, SearchMoviesResponses, SearchMoviesStatus200, SearchMoviesStatus422 } from './SearchMovies'
+export type {
+  SearchAnimesBody,
+  SearchAnimesOptions,
+  SearchAnimesResponse,
+  SearchAnimesResponses,
+  SearchAnimesStatus200,
+  SearchAnimesStatus422,
+} from './SearchAnimes'
+export type {
+  SearchMoviesBody,
+  SearchMoviesOptions,
+  SearchMoviesResponse,
+  SearchMoviesResponses,
+  SearchMoviesStatus200,
+  SearchMoviesStatus422,
+} from './SearchMovies'
 export type { SearchRequest } from './SearchRequest'
-export type { SearchSeriesRouteBody, SearchSeriesRouteOptions, SearchSeriesRouteResponse, SearchSeriesRouteResponses, SearchSeriesRouteStatus200, SearchSeriesRouteStatus422 } from './SearchSeriesRoute'
-export type { UpdateRatingBody, UpdateRatingOptions, UpdateRatingResponse, UpdateRatingResponses, UpdateRatingStatus200, UpdateRatingStatus422 } from './UpdateRating'
+export type {
+  SearchSeriesRouteBody,
+  SearchSeriesRouteOptions,
+  SearchSeriesRouteResponse,
+  SearchSeriesRouteResponses,
+  SearchSeriesRouteStatus200,
+  SearchSeriesRouteStatus422,
+} from './SearchSeriesRoute'
+export type {
+  UpdateRatingBody,
+  UpdateRatingOptions,
+  UpdateRatingResponse,
+  UpdateRatingResponses,
+  UpdateRatingStatus200,
+  UpdateRatingStatus422,
+} from './UpdateRating'
 export type { UpdateRatingRequest } from './UpdateRatingRequest'
 export type { UserIdRequest } from './UserIdRequest'
 export type { ValidationError } from './ValidationError'

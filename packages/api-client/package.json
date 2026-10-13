@@ -10,9 +10,10 @@
     "./mocks": "./src/gen/mocks/index.ts"
   },
   "scripts": {
-    "generate": "kubb generate"
+    "generate": "kubb generate && biome check --write src/gen"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
     "@faker-js/faker": "^10.6.0",
     "@kubb/plugin-axios": "^5.5.12",
     "@kubb/plugin-faker": "^5.1.5",
@@ -22,8 +23,8 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.104.2",
-    "axios": "^1.20.0"
+    "@tanstack/react-query": "^5.82.0",
+    "axios": "^1.12.0"
   },
   "peerDependencies": {
     "@tanstack/react-query": "^5.82.0",
