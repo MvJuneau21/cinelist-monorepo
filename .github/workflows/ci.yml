@@ -1,0 +1,42 @@
+# Pipeline única para o monorepo: API e front são validados juntos, no mesmo commit.
+# Se a API mudar o contrato e o client gerado não for atualizado, o job falha.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  contrato-e-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependências da API
+        run: npm run install:py -w @cinelist/api
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Dependências JS (todos os workspaces)
+        run: npm ci
+
+      - name: Regenera OpenAPI + client (Kubb)
+        run: npm run generate
+
+      - name: Contrato sincronizado (openapi.json e src/gen commitados)
+        run: git diff --exit-code -- apps/api/openapi.json packages/api-client/src/gen
+
+      - name: Build do front
+        run: npm run build -w @cinelist/web
+
+      # Dívida conhecida: o front tem erros de lint antigos (catch com variável não usada).
+      # Fica como aviso até zerar; depois remover o continue-on-error.
+      - name: Lint do front
+        run: npm run lint
+        continue-on-error: true

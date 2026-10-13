@@ -1,5 +1,5 @@
 {
-  "name": "cinelist-frontend",
+  "name": "@cinelist/web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cinelist/api-client": "*",
     "@tailwindcss/vite": "^4.1.12",
+    "@tanstack/react-query": "^5.104.2",
     "axios": "^1.12.2",
     "lucide-react": "^0.545.0",
     "react": "^19.1.1",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@faker-js/faker": "^10.6.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",

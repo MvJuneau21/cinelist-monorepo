@@ -1,0 +1,1062 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CineList API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/anime/": {
+      "get": {
+        "tags": [
+          "Anime"
+        ],
+        "summary": "Top 50 animes populares",
+        "operationId": "list_top_animes",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/anime/search": {
+      "post": {
+        "tags": [
+          "Anime"
+        ],
+        "summary": "Buscar animes por nome",
+        "operationId": "search_animes",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Top 50 filmes populares",
+        "operationId": "list_top_movies",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movies/search": {
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Buscar filmes por nome",
+        "operationId": "search_movies",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/": {
+      "get": {
+        "tags": [
+          "Series"
+        ],
+        "summary": "Top 50 séries populares",
+        "operationId": "list_top_series",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/series/search": {
+      "post": {
+        "tags": [
+          "Series"
+        ],
+        "summary": "Buscar séries por nome",
+        "operationId": "search_series_route",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/popular": {
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "20 filmes, 20 séries e 20 animes mais populares",
+        "operationId": "popular",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/search": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Busca por nome da mídia",
+        "operationId": "search",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/rate": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Avalia uma mídia e salva no banco de dados",
+        "operationId": "rate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/rate/user/get": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Obtém todas as mídias avaliadas por um usuário",
+        "operationId": "get_user_ratings",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserIdRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/rate/update": {
+      "put": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Atualiza a avaliação de uma mídia já existente",
+        "operationId": "update_rating",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRatingRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/rate/delete": {
+      "delete": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Remove a mídia e sua avaliação do banco",
+        "operationId": "delete_rating",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/listas/create": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Cria uma nova lista para o usuário",
+        "operationId": "create_lista",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/listas/item/add": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Adiciona uma mídia em uma lista",
+        "operationId": "add_item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaItemCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaItemOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/listas/item/delete": {
+      "delete": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Remove uma mídia de uma lista",
+        "operationId": "delete_item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteItemRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/listas/get": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Retorna uma lista com seus itens",
+        "operationId": "get_lista",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListaIdRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListaWithItens"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/listas/user/get": {
+      "post": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Retorna todas as listas de um usuário com seus itens",
+        "operationId": "get_listas_by_user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserIdRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/ListaWithItens"
+                  },
+                  "type": "array",
+                  "title": "Response Get Listas By User"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/media/listas/delete": {
+      "delete": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Remove uma lista e todos os itens dela",
+        "operationId": "delete_lista",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "summary": "Root",
+        "operationId": "root",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeleteItemRequest": {
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          },
+          "lista_id": {
+            "type": "integer",
+            "title": "Lista Id"
+          },
+          "media_id": {
+            "type": "integer",
+            "title": "Media Id"
+          },
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id",
+          "lista_id",
+          "media_id",
+          "media_type"
+        ],
+        "title": "DeleteItemRequest"
+      },
+      "DeleteListRequest": {
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          },
+          "lista_id": {
+            "type": "integer",
+            "title": "Lista Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id",
+          "lista_id"
+        ],
+        "title": "DeleteListRequest"
+      },
+      "DeleteRequest": {
+        "properties": {
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          },
+          "media_id": {
+            "type": "integer",
+            "title": "Media Id"
+          },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_type",
+          "media_id",
+          "user_id"
+        ],
+        "title": "DeleteRequest"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ListaCreate": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "user_id"
+        ],
+        "title": "ListaCreate"
+      },
+      "ListaIdRequest": {
+        "properties": {
+          "lista_id": {
+            "type": "integer",
+            "title": "Lista Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lista_id"
+        ],
+        "title": "ListaIdRequest"
+      },
+      "ListaItemCreate": {
+        "properties": {
+          "lista_id": {
+            "type": "integer",
+            "title": "Lista Id"
+          },
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          },
+          "media_id": {
+            "type": "integer",
+            "title": "Media Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "lista_id",
+          "media_type",
+          "media_id"
+        ],
+        "title": "ListaItemCreate"
+      },
+      "ListaItemOut": {
+        "properties": {
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          },
+          "media_id": {
+            "type": "integer",
+            "title": "Media Id"
+          },
+          "media_title": {
+            "type": "string",
+            "title": "Media Title"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "lista_id": {
+            "type": "integer",
+            "title": "Lista Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_type",
+          "media_id",
+          "media_title",
+          "id",
+          "lista_id"
+        ],
+        "title": "ListaItemOut"
+      },
+      "ListaOut": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "id",
+          "user_id"
+        ],
+        "title": "ListaOut"
+      },
+      "ListaWithItens": {
+        "properties": {
+          "nome": {
+            "type": "string",
+            "title": "Nome"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "id": {
+            "type": "integer",
+            "title": "Id"
+          },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          },
+          "itens": {
+            "items": {
+              "$ref": "#/components/schemas/ListaItemOut"
+            },
+            "type": "array",
+            "title": "Itens",
+            "default": []
+          },
+          "item_count": {
+            "type": "integer",
+            "title": "Item Count",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "nome",
+          "id",
+          "user_id",
+          "item_count"
+        ],
+        "title": "ListaWithItens"
+      },
+      "RateRequest": {
+        "properties": {
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          },
+          "media_id": {
+            "type": "integer",
+            "title": "Media Id"
+          },
+          "rating": {
+            "type": "number",
+            "title": "Rating"
+          },
+          "comment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comment"
+          },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_type",
+          "media_id",
+          "rating",
+          "user_id"
+        ],
+        "title": "RateRequest"
+      },
+      "SearchRequest": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "SearchRequest"
+      },
+      "UpdateRatingRequest": {
+        "properties": {
+          "media_type": {
+            "type": "string",
+            "title": "Media Type"
+          },
+          "media_id": {
+            "type": "integer",
+            "title": "Media Id"
+          },
+          "rating": {
+            "type": "number",
+            "title": "Rating"
+          },
+          "comment": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Comment"
+          },
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "media_type",
+          "media_id",
+          "rating",
+          "user_id"
+        ],
+        "title": "UpdateRatingRequest"
+      },
+      "UserIdRequest": {
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "title": "User Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "user_id"
+        ],
+        "title": "UserIdRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

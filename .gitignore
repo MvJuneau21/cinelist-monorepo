@@ -137,3 +137,84 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+# ------------------------------
+# Python
+# ------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+venv/
+env/
+.venv/
+
+# Arquivos de configuração de ambiente
+.env
+.env.*
+
+# Mas não ignore o arquivo de exemplo
+!.env.example
+
+# Logs
+*.log
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# ------------------------------
+# FastAPI / SQLAlchemy / Alembic
+# ------------------------------
+# Alembic migrations
+alembic/versions/*.pyc
+alembic/versions/*.pyo
+alembic/versions/__pycache__/
+
+# SQLAlchemy caches (se houver)
+*.db
+*.sqlite3
+
+# ------------------------------
+# IDEs / Editors
+# ------------------------------
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------------
+# Jupyter Notebook
+# ------------------------------
+.ipynb_checkpoints/
+
+# ------------------------------
+# OS-specific
+# ------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ------------------------------
+# Monorepo
+# ------------------------------
+# Não ignorar: apps/api/openapi.json e packages/api-client/src/gen (contrato versionado, checado no CI)
+.claude/settings.local.json

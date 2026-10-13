@@ -1,0 +1,20 @@
+{
+  "name": "cinelist",
+  "private": true,
+  "description": "CineList — monorepo com API (FastAPI), front-end web (React) e client tipado gerado",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w @cinelist/api",
+    "dev:web": "npm run dev -w @cinelist/web",
+    "openapi": "npm run openapi -w @cinelist/api",
+    "generate": "npm run openapi && npm run generate -w @cinelist/api-client",
+    "lint": "npm run lint -w @cinelist/web",
+    "build": "npm run generate && npm run build -w @cinelist/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

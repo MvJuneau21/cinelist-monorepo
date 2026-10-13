@@ -1,0 +1,10 @@
+{
+  "name": "@cinelist/api",
+  "private": true,
+  "description": "API FastAPI do CineList. O package.json só existe para o workspace orquestrar os scripts Python.",
+  "scripts": {
+    "dev": "python -m uvicorn app.main:app --reload --port 8000",
+    "install:py": "python -m pip install -r requirements.txt",
+    "openapi": "python scripts/export_openapi.py"
+  }
+}

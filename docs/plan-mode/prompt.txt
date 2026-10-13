@@ -1,0 +1,3 @@
+Quero implementar a feature de Favoritos no CineList: o usuário marca/desmarca qualquer mídia (filme, série ou anime) como favorita na tela de detalhes da mídia, e vê todos os favoritos numa aba nova do Perfil.
+
+Use a feature de Listas como referência de padrão, tanto na API quanto no front. Planeje a implementação ponta a ponta — banco, rotas, contrato/client gerado e telas — seguindo o CLAUDE.md e as regras de cada contexto. Aponte onde Favoritos deve seguir Listas e onde deve divergir dela por causa das regras. Não implemente nada ainda, só o plano.
