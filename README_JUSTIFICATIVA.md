@@ -27,7 +27,7 @@ packages/api-client   @cinelist/api-client  gerado pelo Kubb a partir do OpenAPI
 - **npm workspaces**, porque já era a ferramenta do front e não acrescenta nada novo para instalar.
   A API é Python, então ela ganhou um `package.json` mínimo que só expõe `dev`, `install:py` e
   `openapi`. Assim, todos os comandos rodam da raiz do mesmo jeito (`npm run dev:api`, `npm run dev:web`).
-- **Histórico preservado com `git subtree`.** Os 81 commits dos dois repositórios continuam no log, com
+- **Histórico preservado com `git subtree`.** Os 78 commits dos dois repositórios continuam no log, com
   os autores originais. Para um projeto em grupo, isso importa.
 - **`apps/` vs `packages/`.** Em `apps/` fica o que é implantado. Em `packages/` fica o que é consumido
   por outro workspace. O `api-client` é o pacote que liga os dois lados.
