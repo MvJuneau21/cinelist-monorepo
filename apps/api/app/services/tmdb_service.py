@@ -50,25 +50,34 @@ def get_popular_series(limit=50):
     return all_results[:limit]
 
 # --- Detalhes individuais ---
+def _get_json(url: str, descricao: str):
+    # O TMDB responde erro (chave inválida, id inexistente) com um JSON não vazio.
+    # Sem conferir o status, esse JSON chegava às rotas como se fosse a mídia.
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        # Não loga a exceção inteira: a mensagem traz a URL, e a URL traz a api_key.
+        status = e.response.status_code if e.response is not None else "sem resposta"
+        print(f"Erro ao buscar {descricao} no TMDB: {type(e).__name__} (status {status})")
+        return None
+
 def get_movie_details(movie_id: int):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={TMDB_API_KEY}&language=en-US"
-    res = requests.get(url).json()
-    return res
+    return _get_json(url, f"o filme {movie_id}")
 
 def get_series_details(series_id: int):
     url = f"https://api.themoviedb.org/3/tv/{series_id}?api_key={TMDB_API_KEY}&language=en-US"
-    res = requests.get(url).json()
-    return res
+    return _get_json(url, f"a série {series_id}")
 
 def get_movie_credits(movie_id: int):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key={TMDB_API_KEY}&language=pt-BR"
-    response = requests.get(url).json()
-    return response
+    return _get_json(url, f"os créditos do filme {movie_id}") or {}
 
 def get_series_credits(series_id: int):
     url = f"https://api.themoviedb.org/3/tv/{series_id}/credits?api_key={TMDB_API_KEY}&language=pt-BR"
-    response = requests.get(url).json()
-    return response
+    return _get_json(url, f"os créditos da série {series_id}") or {}
 
 # --- Busca por nome ---
 def search_movie(query: str, limit=30):

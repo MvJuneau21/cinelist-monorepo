@@ -130,6 +130,8 @@ def rate(request: RateRequest, db: Session = Depends(get_db)):
     # --- Criação do item por tipo ---
     if media_type == "movie":
         data = get_movie_details(media_id)
+        if not data:
+            raise HTTPException(status_code=404, detail="Filme não encontrado na API")
         credits = get_movie_credits(media_id)
         director = next((p['name'] for p in credits.get('crew', []) if p['job'] == 'Director'), None)
         cast = ", ".join([actor['name'] for actor in credits.get('cast', [])[:10]])
@@ -153,6 +155,8 @@ def rate(request: RateRequest, db: Session = Depends(get_db)):
 
     elif media_type == "serie":
         data = get_series_details(media_id)
+        if not data:
+            raise HTTPException(status_code=404, detail="Série não encontrada na API")
         credits = get_series_credits(media_id)
         creator = next(
             (p['name'] for p in credits.get('crew', []) if p['job'] == 'Director'),
